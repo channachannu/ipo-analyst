@@ -1,0 +1,81 @@
+{
+  "_schema_notes": {
+    "purpose": "Structural template for extracting DRHP data into a queryable, citation-grounded knowledge base. Python populates this from the PDF. The LLM only reads it — it never re-derives a fact that isn't already computed here.",
+    "mandatory_fields_on_every_fact_node": ["value", "unit", "source_page", "source_section", "disclosure_status"],
+    "disclosure_status_enum": [
+      "DISCLOSED",
+      "PENDING_DISCLOSURE",
+      "NOT_APPLICABLE"
+    ],
+    "disclosure_status_rule": "DRAFT RHPs contain '[●]' placeholders for figures not yet finalized (price band, lot size, post-Offer allocation). These MUST be stored as disclosure_status='PENDING_DISCLOSURE', value=null. Never estimate, infer, or silently omit a pending field. The LLM must state 'not yet disclosed in this draft' rather than guessing or staying silent.",
+    "category_tag_enum": {
+      "1_direct_lookup": "Fact copied verbatim from a KB node, cited with source_page.",
+      "2_derived_inference": "Computed in Python by walking an ALLOWED relationship in inference_rules.json. Must show which KB fields were combined.",
+      "3_out_of_scope": "Not answerable from this KB. Must trigger refusal per inference_rules.json blocklist."
+    }
+  },
+
+  "L0_offer_snapshot": {
+    "issuer_name": { "value": null, "unit": "string", "source_page": null, "source_section": null, "disclosure_status": null },
+    "offer_type": { "value": null, "unit": "enum[Fresh Issue|OFS|Both]", "source_page": null, "source_section": null, "disclosure_status": null },
+    "fresh_issue_amount": { "value": null, "unit": "INR million", "source_page": null, "source_section": null, "disclosure_status": null },
+    "offer_for_sale_amount": { "value": null, "unit": "INR million", "source_page": null, "source_section": null, "disclosure_status": null },
+    "total_offer_size": { "value": null, "unit": "INR million", "source_page": null, "source_section": null, "disclosure_status": null },
+    "price_band": { "value": null, "unit": "INR per share, range", "source_page": null, "source_section": null, "disclosure_status": null },
+    "lot_size": { "value": null, "unit": "shares", "source_page": null, "source_section": null, "disclosure_status": null },
+    "face_value": { "value": null, "unit": "INR per share", "source_page": null, "source_section": null, "disclosure_status": null },
+    "equity_shares_pre_offer": { "value": null, "unit": "shares", "source_page": null, "source_section": null, "disclosure_status": null },
+    "equity_shares_post_offer": { "value": null, "unit": "shares", "source_page": null, "source_section": null, "disclosure_status": null },
+    "exchange_listing": { "value": null, "unit": "string", "source_page": null, "source_section": null, "disclosure_status": null },
+    "use_of_proceeds": { "value": null, "unit": "structured: gross/net proceeds + objects list with amounts", "source_page": null, "source_section": "Objects of the Offer", "disclosure_status": null, "note": "Amounts often disclosed before percentages/net figure — expect PARTIAL disclosure_status until Offer Price is finalized." }
+  },
+
+  "L1_business_fundamentals": {
+    "industry_classification": { "value": null, "unit": "string", "source_page": null, "source_section": null, "disclosure_status": null },
+    "business_model_summary": { "value": null, "unit": "string (DRHP's own wording only)", "source_page": null, "source_section": null, "disclosure_status": null },
+    "revenue_segments": [],
+    "manufacturing_facilities": [],
+    "industry_market_size": { "value": null, "unit": "INR / source-cited figure only", "source_page": null, "source_section": null, "disclosure_status": null, "note": "Quote DRHP's own commissioned industry report figure. Never project forward." }
+  },
+
+  "L1b_management_continuity": {
+    "note": "Raw tenure facts only. 'Stability' is a judgment word — never stored or asserted here.",
+    "kmp": []
+  },
+
+  "L2_financial_core": {
+    "note": "Populated per Fiscal Year. All ratios/growth figures computed in Python, never by the LLM.",
+    "fiscal_years": []
+  },
+
+  "L3_valuation": {
+    "note": "Only populated if DRHP itself discloses a peer comparison table. No externally sourced peers.",
+    "peer_comparison": [],
+    "implied_ratios": []
+  },
+
+  "L4_risk_layer": {
+    "risk_factors": [],
+    "promoter_holding": {
+      "materiality_note": "Board-defined materiality thresholds go here verbatim — these become hardcoded Python inclusion rules, not LLM judgment calls.",
+      "promoters": []
+    },
+    "litigation": {
+      "materiality_threshold_amount": { "value": null, "unit": "INR million", "source_page": null, "source_section": null, "disclosure_status": null },
+      "materiality_threshold_basis": { "value": null, "unit": "string", "source_page": null, "source_section": null, "disclosure_status": null },
+      "material_creditor_threshold": { "value": null, "unit": "INR million", "source_page": null, "source_section": null, "disclosure_status": null },
+      "cases": []
+    },
+    "dependencies": []
+  },
+
+  "glossary": {
+    "note": "Reference-only. LLM may quote a definition verbatim with citation but must never reason over glossary terms to derive an analytical claim. Terms defined BY THE RHP ITSELF only — requires source_page. For general financial/accounting jargon the RHP does not define, see financial_ontology instead.",
+    "terms": []
+  },
+
+  "financial_ontology": {
+    "note": "General financial/accounting term definitions (RoNW, EPS, P/E, D/E, CAGR, materiality, etc.) — standard knowledge, NOT specific to or disclosed by any particular RHP. No source_page field — these are not document citations. Distinct from glossary, which holds only RHP-defined terms. Narration must frame these as general knowledge, never as something 'the RHP says'.",
+    "terms": []
+  }
+}

@@ -1,0 +1,283 @@
+{
+  "_document_metadata": {
+    "current_document_type": "RHP",
+    "issuer": "Milky Mist Dairy Food Limited",
+    "note": "This KB reflects a single current snapshot only (no version history, per project decision). Every field below was last sourced from the document_type stated here. If a newer filing (e.g. final Prospectus) is ingested, this field must be updated at the same time as the data — update them together, not separately."
+  },
+
+  "L0_offer_snapshot": {
+    "issuer_name": { "value": "Milky Mist Dairy Food Limited", "unit": "string", "source_page": 1, "source_section": "Definitions and Abbreviations", "disclosure_status": "DISCLOSED" },
+    "offer_type": { "value": "Both", "unit": "enum", "source_page": 75, "source_section": "The Offer", "disclosure_status": "DISCLOSED" },
+    "fresh_issue_amount": { "value": 14280.00, "unit": "INR million", "source_page": 75, "source_section": "The Offer", "disclosure_status": "DISCLOSED" },
+    "offer_for_sale_amount": { "value": 1250.00, "unit": "INR million", "source_page": 75, "source_section": "The Offer", "disclosure_status": "DISCLOSED" },
+    "total_offer_size": { "value": 15530.00, "unit": "INR million", "source_page": 75, "source_section": "The Offer", "disclosure_status": "DISCLOSED" },
+    "price_band": { "value": null, "unit": "INR per share, range", "source_page": 75, "source_section": "The Offer", "disclosure_status": "PENDING_DISCLOSURE" },
+    "lot_size": { "value": null, "unit": "shares", "source_page": null, "source_section": null, "disclosure_status": "PENDING_DISCLOSURE" },
+    "face_value": { "value": 2, "unit": "INR per share", "source_page": 75, "source_section": "The Offer", "disclosure_status": "DISCLOSED" },
+    "equity_shares_pre_offer": { "value": 667828789, "unit": "shares", "source_page": 75, "source_section": "The Offer", "disclosure_status": "DISCLOSED" },
+    "equity_shares_post_offer": { "value": null, "unit": "shares", "source_page": 75, "source_section": "The Offer", "disclosure_status": "PENDING_DISCLOSURE" },
+    "pre_ipo_placement_completed": { "value": "543,789 Equity Shares at INR 139.76/share + 25,000,000 CCPS at INR 139.76/CCPS, aggregating INR 3,570.00 million. Completed prior to RHP filing; reduced Fresh Issue size accordingly.", "source_page": 75, "source_section": "The Offer", "disclosure_status": "DISCLOSED", "note": "This explains the Fresh Issue reduction from the earlier draft figure — Python should surface this note whenever the delta is asked about, not let the LLM guess a reason." },
+    "use_of_proceeds": {
+      "gross_proceeds_fresh_issue_inr_million": { "value": 14280.00, "source_page": 125, "source_section": "Objects of the Offer", "disclosure_status": "DISCLOSED" },
+      "net_proceeds_inr_million": { "value": null, "source_page": 125, "source_section": "Objects of the Offer", "disclosure_status": "PENDING_DISCLOSURE", "note": "Depends on Offer related expenses, which depend on final Offer Price — not yet fixed." },
+      "objects": [
+        { "purpose": "Repayment/prepayment of certain outstanding borrowings", "estimated_amount_inr_million": 4968.61, "pct_of_net_proceeds": null, "disclosure_status": "DISCLOSED (amount) / PENDING (pct)", "source_page": 126 },
+        { "purpose": "Capital expenditure — expansion and modernisation of Perundurai Manufacturing Facility", "estimated_amount_inr_million": 4692.40, "pct_of_net_proceeds": null, "disclosure_status": "DISCLOSED (amount) / PENDING (pct)", "source_page": 126 },
+        { "purpose": "Deployment of visi coolers, ice cream freezers and chocolate coolers", "estimated_amount_inr_million": 1553.13, "pct_of_net_proceeds": null, "disclosure_status": "DISCLOSED (amount) / PENDING (pct)", "source_page": 126 },
+        { "purpose": "General corporate purposes", "estimated_amount_inr_million": null, "pct_of_net_proceeds": null, "disclosure_status": "PENDING_DISCLOSURE", "note": "Capped at 25% of Gross Proceeds per RHP; exact amount finalized only after Offer Price is set.", "source_page": 126 }
+      ],
+      "source_page": 125,
+      "source_section": "Objects of the Offer",
+      "disclosure_status": "PARTIAL — amounts for 3 of 4 objects disclosed, percentages and general corporate purposes amount pending Offer Price finalization"
+    }
+  },
+
+  "L1_business_fundamentals": {
+    "industry_market_size": {
+      "value": "Indian dairy market valued at INR 12.0T in FY26, projected to reach INR 19.6T by FY31 (10.3% CAGR FY26-31). Value-added dairy products (VADP) segment: INR 6.1T in FY26, projected 12.4% CAGR FY26-31 (TVADP 12.1%, EVADP 15.3%).",
+      "unit": "INR trillion, DRHP-commissioned industry report figures",
+      "source_page": 192,
+      "source_section": "Industry Overview (sourced from 1Lattice Report, commissioned and paid for by the Company)",
+      "disclosure_status": "DISCLOSED",
+      "note": "This is a paid, company-commissioned report (1Lattice), not an independent market study — the RHP itself flags this as a risk factor (p.40). State the figure as 'per the Company's commissioned industry report,' not as neutral market fact. Never project this forward beyond FY31 — that's the report's own projection horizon, not ours to extend further."
+    }
+  },
+
+  "L2_financial_core": {
+    "fiscal_years": [
+      {
+        "fiscal_year": "FY2026",
+        "as_of": "2026-03-31",
+        "source_page": 79,
+        "source_section": "Restated Consolidated Statement of Assets and Liabilities",
+        "disclosure_status": "DISCLOSED",
+        "total_assets_inr_million": 26764.60,
+        "total_equity_inr_million": 4630.15,
+        "total_liabilities_inr_million": 22134.45,
+        "non_current_borrowings_inr_million": 12406.73,
+        "current_borrowings_inr_million": 4311.80,
+        "trade_payables_total_inr_million": 1097.07
+      },
+      {
+        "fiscal_year": "FY2025",
+        "as_of": "2025-03-31",
+        "source_page": 79,
+        "source_section": "Restated Consolidated Statement of Assets and Liabilities",
+        "disclosure_status": "DISCLOSED",
+        "total_assets_inr_million": 21505.90,
+        "total_equity_inr_million": 3277.93,
+        "total_liabilities_inr_million": 18227.97,
+        "non_current_borrowings_inr_million": 10320.57,
+        "current_borrowings_inr_million": 3443.19,
+        "trade_payables_total_inr_million": 944.07
+      },
+      {
+        "fiscal_year": "FY2024",
+        "as_of": "2024-03-31",
+        "source_page": 79,
+        "source_section": "Restated Consolidated Statement of Assets and Liabilities",
+        "disclosure_status": "DISCLOSED",
+        "total_assets_inr_million": 16062.56,
+        "total_equity_inr_million": 2820.65,
+        "total_liabilities_inr_million": 13241.91,
+        "non_current_borrowings_inr_million": 7198.21,
+        "current_borrowings_inr_million": 3169.02,
+        "trade_payables_total_inr_million": 450.62
+      }
+    ],
+    "_computed_by_python_not_llm": {
+      "debt_equity_FY26": 3.62,
+      "debt_equity_FY25": 4.19,
+      "debt_equity_FY24": 3.68,
+      "note": "Total borrowings (non-current + current) / Total equity. FY24->FY25 rose, FY25->FY26 eased — direction reversed, not a straight trend. LLM narrates this shape, does not recompute it."
+    }
+  },
+
+  "L3_valuation": {
+    "peer_comparison": {
+      "source_page": 149,
+      "source_section": "Basis for the Offer Price — Comparison of accounting ratios with listed industry peers",
+      "disclosure_status": "DISCLOSED",
+      "as_of": "Closing prices July 20, 2026; financials FY2026",
+      "note": "All figures below are the RHP's own disclosed peer table — no externally sourced peer added. Company's own P/E is [●] pending Offer Price finalization.",
+      "issuer_row": {
+        "name": "Milky Mist Dairy Food Limited (Our Company)",
+        "revenue_from_operations_inr_million": 31383.64,
+        "face_value_per_share_inr": 2.00,
+        "pe_ratio": "PENDING_DISCLOSURE — to be determined on conclusion of Book Building",
+        "eps_basic_inr": 1.98,
+        "eps_diluted_inr": 1.97,
+        "ronw_pct": 33.60,
+        "net_worth_inr_million": 3779.95,
+        "nav_per_share_inr": 5.87
+      },
+      "listed_peers": [
+        { "name": "Bikaji Foods International Limited", "revenue_from_operations_inr_million": 29938.63, "pe_ratio": 62.33, "eps_diluted_inr": 10.30, "ronw_pct": 16.07, "net_worth_inr_million": 16069.93, "nav_per_share_inr": 64.03 },
+        { "name": "Britannia Industries Limited", "revenue_from_operations_inr_million": 191515.90, "pe_ratio": 51.98, "eps_diluted_inr": 105.18, "ronw_pct": 49.61, "net_worth_inr_million": 51065.60, "nav_per_share_inr": 212.01 },
+        { "name": "Dodla Dairy Limited", "revenue_from_operations_inr_million": 41252.01, "pe_ratio": 24.26, "eps_diluted_inr": 44.26, "ronw_pct": 15.95, "net_worth_inr_million": 16740.81, "nav_per_share_inr": 277.50 },
+        { "name": "Hatsun Agro Product Limited", "revenue_from_operations_inr_million": 99592.20, "pe_ratio": 58.20, "eps_diluted_inr": 15.99, "ronw_pct": 18.32, "net_worth_inr_million": 19445.20, "nav_per_share_inr": 87.30 },
+        { "name": "Nestle India Limited", "revenue_from_operations_inr_million": 231546.00, "pe_ratio": 79.76, "eps_diluted_inr": 18.15, "ronw_pct": 67.85, "net_worth_inr_million": 51569.70, "nav_per_share_inr": 26.74 },
+        { "name": "Parag Milk Foods Limited", "revenue_from_operations_inr_million": 38175.00, "pe_ratio": 21.28, "eps_diluted_inr": 10.57, "ronw_pct": 10.73, "net_worth_inr_million": 12585.60, "nav_per_share_inr": 93.44 },
+        { "name": "Tata Consumer Products Limited", "revenue_from_operations_inr_million": 202904.30, "pe_ratio": 70.08, "eps_diluted_inr": 15.58, "ronw_pct": 7.08, "net_worth_inr_million": 217875.30, "nav_per_share_inr": 220.02 }
+      ],
+      "average_peer_pe_ratio": 52.56
+    },
+    "implied_ratios": {
+      "note": "Cannot compute Company's own implied P/E until Offer Price is finalized — blocked per inference_rules.json (chain requires a DISCLOSED price, not PENDING).",
+      "disclosure_status": "PENDING_DISCLOSURE"
+    }
+  },
+
+  "L4_risk_layer": {
+    "risk_factors": {
+      "inclusion_rule": "Curated subset only — risks with direct, disclosed cash-flow or brand impact, per project's original inclusion rule. Not exhaustive; RHP contains ~80 numbered risk factors total. Ranked #1-3 are the RHP's own top-ranked risks (order in the RHP itself typically reflects the Company's assessment of materiality).",
+      "factors": [
+        {
+          "rank": 1,
+          "summary": "Contingent liabilities disclosed in Restated Consolidated Financial Information, including GST demands: INR 161.79M (FY2023-24), INR 50.41M (FY2024-25), INR 42.48M (FY2025-26)",
+          "category": "Tax/regulatory contingent liability",
+          "cash_flow_relevant": true,
+          "source_page": 26,
+          "source_section": "Risk Factors"
+        },
+        {
+          "rank": 2,
+          "summary": "Manufacturing operations dependent on supply of large amounts of raw milk",
+          "category": "Supply/input dependency",
+          "cash_flow_relevant": true,
+          "source_page": 27,
+          "source_section": "Risk Factors"
+        },
+        {
+          "rank": 3,
+          "summary": "Significant portion of revenue derived from South India — geographic concentration",
+          "category": "Revenue concentration",
+          "cash_flow_relevant": true,
+          "source_page": 28,
+          "source_section": "Risk Factors"
+        },
+        {
+          "rank": 11,
+          "summary": "Significant dependence on manufacturing facility located in Perundurai, Erode",
+          "category": "Single-site operational dependency",
+          "cash_flow_relevant": true,
+          "source_page": 39,
+          "source_section": "Risk Factors"
+        },
+        {
+          "rank": 20,
+          "summary": "Business significantly dependent on distribution network; majority of revenue from [specific channel disclosed in full RHP text]",
+          "category": "Distribution dependency",
+          "cash_flow_relevant": true,
+          "source_page": 46,
+          "source_section": "Risk Factors"
+        },
+        {
+          "rank": 28,
+          "summary": "Company involved in certain legal and regulatory proceedings — cross-references the Litigation section",
+          "category": "Litigation",
+          "cash_flow_relevant": true,
+          "source_page": 51,
+          "source_section": "Risk Factors",
+          "note": "See L4_risk_layer.litigation for materiality thresholds and case-level detail."
+        }
+      ]
+    },
+    "promoter_holding": {
+      "promoters": [
+        {
+          "name": "Sathishkumar T",
+          "role": "Chairman and Managing Director",
+          "pre_offer_holding_pct": 39.38,
+          "post_offer_holding_pct": null,
+          "shares_held": 262976353,
+          "as_of": "10 days prior to date of RHP",
+          "source_page": 119,
+          "source_section": "Capital Structure",
+          "disclosure_status_pre": "DISCLOSED",
+          "disclosure_status_post": "PENDING_DISCLOSURE"
+        },
+        {
+          "name": "Anitha S",
+          "role": "Director",
+          "pre_offer_holding_pct": 49.48,
+          "post_offer_holding_pct": null,
+          "shares_held": 330464954,
+          "as_of": "10 days prior to date of RHP",
+          "source_page": 119,
+          "source_section": "Capital Structure",
+          "disclosure_status_pre": "DISCLOSED",
+          "disclosure_status_post": "PENDING_DISCLOSURE"
+        }
+      ],
+      "combined_pre_offer_pct": 88.86,
+      "_computed_by_python_not_llm": true,
+      "other_notable_shareholders": [
+        { "name": "Jongsong Investments Pte. Ltd.", "pct": 5.16, "note": "New entrant since Draft RHP — part of Pre-IPO placement / secondary acquisition", "source_page": 119 },
+        { "name": "Taurus Family Private Trust", "pct": 1.87, "source_page": 119 },
+        { "name": "Aquarius Family Private Trust", "pct": 1.60, "source_page": 119 }
+      ],
+      "_change_note": "Combined promoter holding declined from 92.39% (Draft RHP) to 88.86% (RHP) due to new investor entry via Pre-IPO placement, not a sale by promoters themselves. This distinction (dilution vs. divestment) matters and should be stated explicitly, never collapsed into a single 'promoters reduced stake' claim."
+    },
+    "litigation": {
+      "materiality_threshold_amount": 32.09,
+      "materiality_threshold_basis": "5% of average absolute restated PAT, last 3 Fiscals (lower of: 2% turnover / 2% net worth / 5% avg 3-yr PAT, per Company's own Materiality Policy)",
+      "material_creditor_threshold": 54.85,
+      "material_creditor_threshold_basis": "5% of consolidated trade payables as at March 31, 2026 (INR 1,097.07 million)",
+      "source_page": 416,
+      "source_section": "Outstanding Litigation and Material Developments",
+      "disclosure_status": "DISCLOSED",
+      "cases": [],
+      "_note": "Case-level entries deliberately left empty in this proof-of-concept. Threshold itself roughly doubled vs Draft RHP (₹15.46M -> ₹32.09M) simply because 3-yr average PAT grew — a scale effect, not a policy change."
+    }
+  },
+
+  "glossary_sample": {
+    "terms": [
+      { "term": "Bulk Milk Cooler", "definition": "Small-scale milk chilling units typically located at village or farm level, used for on-site collection and temporary storage of milk. Aggregate installed capacity up to 20,000 litres/day.", "source_page": 1, "source_section": "Definitions and Abbreviations" },
+      { "term": "Milk Chilling Centres", "definition": "Milk procurement and chilling facility with installed capacity exceeding 20,000 litres/day, handling larger volumes with reception, chilling, storage, cleaning and water treatment systems.", "source_page": 2, "source_section": "Definitions and Abbreviations" },
+      { "term": "CCPS", "definition": "0.01% Compulsorily Convertible Preference Shares of face value ₹2 each, issued by the Company from time to time.", "source_page": 4, "source_section": "Definitions and Abbreviations" }
+    ]
+  },
+
+  "financial_ontology": {
+    "_note": "General financial/accounting term definitions — standard knowledge, NOT disclosed by or specific to this RHP. No source_page: these are not RHP citations. Distinct from glossary_sample, which holds terms the RHP itself defines with page references. Narration rules for this section (see 05_query_engine.py ONTOLOGY_ADDENDUM) forbid inventing a page citation for these.",
+    "terms": [
+      {
+        "term": "RoNW (Return on Net Worth)",
+        "definition": "A profitability ratio measuring how efficiently a company generates profit from shareholders' equity. Calculated as Net Profit / Net Worth, expressed as a percentage.",
+        "relates_to_kb_fields": ["L3_valuation.peer_comparison"]
+      },
+      {
+        "term": "NAV (Net Asset Value) per Share",
+        "definition": "A company's net worth (total assets minus total liabilities) divided by its total number of outstanding equity shares.",
+        "relates_to_kb_fields": ["L3_valuation.peer_comparison"]
+      },
+      {
+        "term": "EPS (Earnings Per Share)",
+        "definition": "Net profit attributable to equity shareholders divided by the number of equity shares. 'Basic EPS' uses the actual weighted-average share count; 'Diluted EPS' assumes conversion of instruments like CCPS into equity shares, which lowers the per-share figure.",
+        "relates_to_kb_fields": ["L3_valuation.peer_comparison"]
+      },
+      {
+        "term": "P/E Ratio (Price to Earnings)",
+        "definition": "Share price divided by earnings per share. Indicates how much investors are paying per unit of the company's earnings; a common (though not sole) valuation comparison metric between peer companies.",
+        "relates_to_kb_fields": ["L3_valuation.peer_comparison"]
+      },
+      {
+        "term": "D/E Ratio (Debt to Equity)",
+        "definition": "Total borrowings divided by total shareholders' equity. Indicates how much of the company's financing comes from debt relative to owners' capital; a higher ratio generally means greater reliance on borrowed funds.",
+        "relates_to_kb_fields": ["L2_financial_core._computed_by_python_not_llm"]
+      },
+      {
+        "term": "CAGR (Compound Annual Growth Rate)",
+        "definition": "The annualized average growth rate of a value over a specified period longer than one year, assuming growth compounds each year. Smooths out year-to-year volatility into a single average rate.",
+        "relates_to_kb_fields": ["L1_business_fundamentals.industry_market_size"]
+      },
+      {
+        "term": "Materiality (in disclosure context)",
+        "definition": "A general accounting/disclosure principle: information is 'material' if its omission or misstatement could reasonably influence the decisions of someone relying on it. Companies typically set their own numeric materiality thresholds (e.g. a percentage of profit or net worth) to decide what must be individually disclosed versus what can be aggregated.",
+        "relates_to_kb_fields": ["L4_risk_layer.litigation"]
+      }
+    ]
+  }
+}

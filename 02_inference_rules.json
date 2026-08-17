@@ -1,0 +1,48 @@
+{
+  "_purpose": "Python checks the requested question against these chains BEFORE calling the LLM. Category 1/2 chains proceed with precomputed values + citations. Category 3 chains return a hardcoded refusal template — the LLM is never given the chance to attempt them.",
+  "max_hop_count": 2,
+
+  "allowed_category_2_chains": [
+    {
+      "chain": "FinancialPeriod[Y] -> FinancialPeriod[Y-1]",
+      "produces": "YoY growth %, margin trend, CAGR",
+      "computed_by": "python",
+      "example": "Revenue growth FY25 vs FY24"
+    },
+    {
+      "chain": "Promoter.preOfferPct -> Promoter.postOfferPct",
+      "produces": "Dilution % / direction",
+      "computed_by": "python",
+      "guard": "If postOfferPct.disclosure_status == PENDING_DISCLOSURE, return 'not yet disclosed', do not compute delta"
+    },
+    {
+      "chain": "Litigation.amount -> Litigation.materiality_threshold",
+      "produces": "Material vs non-material flag",
+      "computed_by": "python",
+      "guard": "Use the offer document's OWN board-defined threshold (currently sourced from the RHP). Never apply an external/generic materiality standard."
+    },
+    {
+      "chain": "Dependency.concentrationPct -> threshold(25%)",
+      "produces": "Customer/supplier concentration risk flag",
+      "computed_by": "python"
+    },
+    {
+      "chain": "FinancialPeriod.totalBorrowings, FinancialPeriod.totalEquity",
+      "produces": "Debt/Equity ratio",
+      "computed_by": "python"
+    }
+  ],
+
+  "blocked_category_3_chains": [
+    { "pattern": "KMP.tenure -> stability_judgment", "reason": "Tenure is fact; 'stable leadership' is a subjective label not present in DRHP." },
+    { "pattern": "FinancialPeriod[latest] -> FinancialPeriod[future]", "reason": "No extrapolation beyond disclosed figures. DRHP's own projections (if any) are quoted as-is, never extended by the model." },
+    { "pattern": "any -> subscribe_recommendation", "reason": "Investment recommendation is always out of scope regardless of ratio quality." },
+    { "pattern": "any -> fair_value_opinion", "reason": "Valuation opinion requires market judgment outside the DRHP's own disclosed numbers." },
+    { "pattern": "IndustryMarketSize[disclosed] -> IndustryMarketSize[future]", "reason": "Can quote the commissioned industry report figure; cannot project it forward." },
+    { "pattern": "Issuer -> ExternalPeer(not in DRHP peer table)", "reason": "Comparison limited to peers the DRHP itself discloses." },
+    { "pattern": "any chain with hop_count > 2", "reason": "3+ hops indicates narrative construction, not lookup. Auto-refuse; ask user to narrow the question." },
+    { "pattern": "any field where disclosure_status == PENDING_DISCLOSURE", "reason": "Draft RHP placeholder ('[●]'). State plainly that this figure is not yet disclosed. Never estimate a plausible number." }
+  ],
+
+  "refusal_template": "This isn't something I can answer from the DRHP — [reason: out of scope / not yet disclosed / requires judgment beyond the document]. I can tell you what the DRHP does disclose on this topic instead."
+}
